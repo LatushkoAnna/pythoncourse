@@ -9,9 +9,10 @@ for act in data["acts"]:
     for scene in act["scenes"]:
         characters = []
         for action in scene["action"]:
-            if action["character"] not in characters:
-                characters.append(action["character"])
-        data1.append(characters)
+            characters.append(action["character"])
+        data1.append(list(set(characters)))
 
 with open('result_2.json', 'w') as f:
-    f.write(json.dumps(data1, ensure_ascii=False, indent=4))
+    for line in data1:
+        f.write(json.dumps(line, ensure_ascii=False, separators=(',', ':')))
+        f.write("\n")
