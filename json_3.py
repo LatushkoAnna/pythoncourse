@@ -11,7 +11,7 @@ for act in data["acts"]:
             if action["character"] not in characters:
                 characters[action["character"]] = 1
             else:
-                characters[action["character"]] = characters[action["character"]] + 1
+                characters[action["character"]] += 1
 
 max_lines = 0
 char_name = ""
