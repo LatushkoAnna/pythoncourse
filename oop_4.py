@@ -41,9 +41,7 @@ class Person:
 
     def find_ticket(self, booth):
         for ticket in booth.tickets:
-            if self.destination != ticket.destination:
-                pass
-            else:
+            if self.destination == ticket.destination:
                 return ticket
 
 
