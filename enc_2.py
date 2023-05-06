@@ -5,11 +5,17 @@ class BankAccount:
         self.__balance = 0
         self.__password = password
 
-    def get_balance(self):
-        return self.__balance
+    def get_balance(self, password):
+        if self.__password == password:
+            return self.__balance
+        else:
+            print("Your current password is incorrect.")
 
-    def get_password(self):
-        return self.__password
+    def get_password(self, password):
+        if self.__password == password:
+            return self.__password
+        else:
+            print("Your current password is incorrect.")
 
     def set_password(self, password, new_password):
         if self.__password == password:
