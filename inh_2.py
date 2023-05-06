@@ -18,7 +18,7 @@ class Oval(Figure):
         self.ry = ry
 
     def print_info(self):
-        print(f"Это {self.name}. Его цвет – {self.color}. Радиус X – {self.rx}. Радиус Y – {self.ry}.")
+        print(f"Это {self.name}. Его цвет – {self.color}. Радиус 1 – {self.rx}. Радиус 2 – {self.ry}.")
 
 
 class Square(Figure):

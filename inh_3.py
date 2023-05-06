@@ -30,7 +30,7 @@ class RegularEmployee(Employee):
     def info(self):
         self.base_info()
         print(f"They work in the {self.dep} department and they are a part of {self.team.name}'s team.")
-        print("___________________")
+        print("__________________")
 
 
 class Trainee(Employee):
@@ -43,7 +43,7 @@ class Trainee(Employee):
     def info(self):
         self.base_info()
         print(f"They haven't been assigned to a team yet and their probation period is {self.probation_length}.")
-        print("___________________")
+        print("__________________")
 
 
 class Teamlead(RegularEmployee):
@@ -57,7 +57,7 @@ class Teamlead(RegularEmployee):
         self.base_info()
         print(f"Their team consists of {', '.join(x for x in self.team_members)}.\n"
               f"They work in the {self.dep} department.")
-        print("___________________")
+        print("__________________")
 
 
 class DepartmentHead(Employee):
@@ -75,7 +75,7 @@ class DepartmentHead(Employee):
         self.base_info()
         print(f"They are the head of the {self.dep} department.\n"
               f"Their subordinates are {', '.join(x for x in self.subordinates)}.")
-        print("___________________")
+        print("__________________")
 
 
 class CEO(Employee):
@@ -88,7 +88,7 @@ class CEO(Employee):
     def info(self):
         self.base_info()
         print(f"Their direct subordinates are {', '.join(x for x in self.subordinates)}.")
-        print("___________________")
+        print("__________________")
 
 
 e_1 = RegularEmployee("Jenna Ramsey", 30000, "sales")

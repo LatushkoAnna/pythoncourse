@@ -30,7 +30,7 @@ class Worker(Table):
             self.is_busy = True
             print("You've started working")
         else:
-            print("Sorry, but this table is already occupied :(")
+            print("Sorry, but this table is already occupied :c")
 
     def finish_work(self):
         if self.is_busy:
