@@ -25,6 +25,9 @@ class Corpus:
     def get_sentence(self, num):
         return self._sentences[num]
 
+    def get_sent_list(self):
+        return self._sentences
+
 
 class Sentence:
     def __init__(self, string, wordforms):
@@ -33,6 +36,9 @@ class Sentence:
 
     def get_word(self, num):
         return self._wordforms[num]
+
+    def get_sent_text(self):
+        return self._sentence
 
 
 class Wordform:
@@ -43,3 +49,6 @@ class Wordform:
 
     def get_grammem(self, num):
         return self._grammems[num]
+
+    def get_wordform(self):
+        return self._wordform
