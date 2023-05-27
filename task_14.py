@@ -1,8 +1,8 @@
 import json
+import math
 import os
 from collections import Counter
 
-import math
 import pymorphy2
 
 
@@ -15,7 +15,7 @@ class TFIDF:
             self._add_text(path_to_file)
         if os.path.exists('idfs.json'):
             with open('idfs.json', 'r', encoding='utf-8') as f:
-                self.set_idfs(json.load(f))
+                self._idfs = json.load(f)
         else:
             for text in self.get_texts():
                 self._count_idfs(text)
@@ -25,9 +25,6 @@ class TFIDF:
 
     def get_idfs(self):
         return self._idfs
-
-    def set_idfs(self, data: dict):
-        self._idfs = data
 
     def _add_text(self, path_to_file):
         words_count = Counter(self._preprocess(path_to_file))
@@ -45,9 +42,9 @@ class TFIDF:
 
     def _count_idfs(self, text):
         for word in text:
-            d = len(self.get_texts())
+            d = len(self._texts)
             di = 0
-            for text in self.get_texts():
+            for text in self._texts:
                 if word in text:
                     di += 1
             self._idfs[word] = math.log(abs(d) / abs(di))
@@ -58,12 +55,10 @@ class TFIDF:
         words = self._preprocess(path_to_file)
         words_count = Counter(words)
         tfidfs = []
+        text_len = len(words)
         for word in words:
-            tf = words_count[word] / len(words)
-            if word not in self.get_idfs():
-                idf = 0
-            else:
-                idf = self.get_idfs()[word]
+            tf = words_count[word] / text_len
+            idf = self._idfs.get(word, 0)
             tfidf = tf * idf
             tfidfs.append((word, tfidf))
         return tfidfs
